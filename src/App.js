@@ -8,7 +8,22 @@ class App extends Component {
     bad: 0,
   };
   render() {
-    return <div>test</div>;
+    return (
+      <div>
+        <h1>Please leave feedback</h1>
+        <div>
+          <button type="button">Good</button>
+          <button type="button">Neutral</button>
+          <button type="button">Bad</button>
+        </div>
+        <h2>Statistics</h2>
+        <p>Good:</p>
+        <p>Neutral:</p>
+        <p>Bad:</p>
+        <p>Total:</p>
+        <p>Positive feedback:</p>
+      </div>
+    );
   }
 }
 
