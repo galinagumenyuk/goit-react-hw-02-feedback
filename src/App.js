@@ -3,8 +3,20 @@ import "./App.css";
 import FeedbackOptions from "./components/FeedbackOptions";
 import Statistic from "./components/Statistics";
 import Notification from "./components/Notification";
+import PropTypes from "prop-types";
 
 class App extends Component {
+  static propTypes = {
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
+    countTotalFeedback: PropTypes.number,
+    countPositiveFeedbackPercentage: PropTypes.number,
+    onIncrementGood: PropTypes.func,
+    onIncrementNeutral: PropTypes.func,
+    onIncrementBad: PropTypes.func,
+  };
+
   state = {
     good: 0,
     neutral: 0,
