@@ -12,9 +12,7 @@ class App extends Component {
     bad: PropTypes.number,
     countTotalFeedback: PropTypes.number,
     countPositiveFeedbackPercentage: PropTypes.number,
-    onIncrementGood: PropTypes.func,
-    onIncrementNeutral: PropTypes.func,
-    onIncrementBad: PropTypes.func,
+    onIncrement: PropTypes.func,
   };
 
   state = {
@@ -23,16 +21,10 @@ class App extends Component {
     bad: 0,
   };
 
-  handleIncrementGood = () => {
-    this.setState((prevState) => ({ good: prevState.good + 1 }));
-  };
-
-  handleIncrementNeutral = () => {
-    this.setState((prevState) => ({ neutral: prevState.neutral + 1 }));
-  };
-
-  handleIncrementBad = () => {
-    this.setState((prevState) => ({ bad: prevState.bad + 1 }));
+  handleIncrement = (button) => {
+    this.setState((prevState) => ({
+      [button.target.id]: prevState[button.target.id] + 1,
+    }));
   };
 
   render() {
@@ -46,9 +38,8 @@ class App extends Component {
       <div className="container">
         <h1>Please leave feedback</h1>
         <FeedbackOptions
-          onIncrementGood={this.handleIncrementGood}
-          onIncrementNeutral={this.handleIncrementNeutral}
-          onIncrementBad={this.handleIncrementBad}
+          onLeaveFeedback={this.handleIncrement}
+          state={this.state}
         />
         <h2>Statistics</h2>
         {countTotalFeedback > 0 ? (
